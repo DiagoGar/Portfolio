@@ -14,7 +14,10 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
-export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
+export const ProjectModal: React.FC<ProjectModalProps> = ({
+  project,
+  onClose,
+}) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
       <motion.div
@@ -40,10 +43,16 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           <>
             <h4 className="mt-4 font-semibold">Tecnologías:</h4>
             <ul className="flex space-x-2 mt-2">
-              {project.tecnologias.map((tech, index) => (
-                <div className="flex flex-col">
-                <li key={index} className="px-3 py-1 rounded">{tech}</li>
-                <Image key={index} src={`/logos/${tech}.svg`} alt="tecnologias" width={90} height={50} className="bg-gray-700 px-3 py-1 rounded"/>
+              {project.tecnologias.map((tech) => (
+                <div key={tech} className="flex flex-col items-center">
+                  <li className="px-3 py-1 rounded">{tech}</li>
+                  <Image
+                    src={`/logos/${tech}.svg`}
+                    alt={tech}
+                    width={90}
+                    height={50}
+                    className="bg-gray-700 px-3 py-1 rounded"
+                  />
                 </div>
               ))}
             </ul>
@@ -56,9 +65,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             <h4 className="mt-4 font-semibold">Galería:</h4>
             <div className="flex space-x-2 mt-2 overflow-x-auto">
               {project.images.map((img, index) => (
-                <Image key={index} src={img} alt="Galería" width={150} height={100} className="rounded" />
+                <Image
+                  key={index}
+                  src={img}
+                  alt="Galería"
+                  width={150}
+                  height={100}
+                  className="rounded"
+                />
               ))}
-              
             </div>
           </>
         )}
