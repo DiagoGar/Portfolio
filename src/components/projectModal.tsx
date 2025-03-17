@@ -2,26 +2,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const technologies = [
-  { name: "JavaScript", logo: "/logos/javascript.svg" },
-  { name: "TypeScript", logo: "/logos/typescript.svg" },
-  { name: "Node.js", logo: "/logos/nodejs.svg" },
-  { name: "Laravel", logo: "/logos/laravel.svg" },
-  { name: "Next.js", logo: "/logos/nextjs.svg" },
-  { name: "React", logo: "/logos/react.svg" },
-  { name: "Bootstrap", logo: "/logos/bootstrap.svg" },
-  { name: "Tailwind CSS", logo: "/logos/tailwind.svg" },
-  { name: "Firebase", logo: "/logos/firebase.svg" },
-  { name: "MongoDB", logo: "/logos/mongoDB.svg" },
-  { name: "SQL", logo: "/logos/sql.svg" },
-  { name: "GitHub", logo: "/logos/github.svg" },
-  { name: "Web Scraping", logo: "/logos/webscraping.svg" },
-  { name: "IA", logo: "/logos/ai.svg" },
-  { name: "n8n", logo: "/logos/n8n.svg" },
-  { name: "aws", logo: "/logos/AWS.svg" },
-  { name: "handlebars", logo: "/logos/handlebars.svg" },
-];
-
 interface ProjectModalProps {
   project: {
     id: string;

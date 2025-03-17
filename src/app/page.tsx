@@ -4,8 +4,6 @@ import { Hero } from "@/components/hero";
 import { Projects } from "@/components/projects";
 import { Technologies } from "@/components/technologies";
 
-import Image from "next/image";
-
 export default function Home() {
   return (
     <main>
