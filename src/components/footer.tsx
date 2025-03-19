@@ -35,7 +35,7 @@ export const Footer = () => {
     };
   
     return (
-      <footer className="bg-gray-900/70 backdrop-blur-lg text-white py-10">
+      <footer className="bg-gray-900/70 backdrop-blur-lg text-white py-10" id="contact">
         <div className="max-w-5xl mx-auto px-5">
           <h2 className="text-3xl font-bold text-center mb-6">Contáctame</h2>
           <form onSubmit={handleSubmit} className="flex flex-col items-center space-y-4">

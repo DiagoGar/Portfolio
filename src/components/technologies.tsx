@@ -22,7 +22,7 @@ const technologies = [
 
 export const Technologies = () => {
   return (
-    <section className="py-10 bg-gray-900 text-white text-center">
+    <section className="py-10 bg-gray-900 text-white text-center" id="technologies">
       <h2 className="text-3xl font-bold mb-6">Tecnologías</h2>
       <div className="flex flex-wrap justify-center gap-6">
         {technologies.map((tech) => (
