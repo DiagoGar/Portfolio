@@ -22,6 +22,30 @@ interface Project {
   images?: string[];
 }
 
+// const projets = [
+//   {
+//     id: 1,
+//     description: 'Sistema automatizado para recopilar información y mejorar la eficiencia en licitaciones.',
+//     tecnologias: ['javaScript', 'n8n'],
+//     title: 'Automatización de Licitaciones',
+//     image: '/img/puppeteer.png'
+//   },
+//   {
+//     id: 2,
+//     description: 'Este fue uno de mis primeros proyectos, creado usando nodejs y handlebars es un blog o red social típica con funciones de perfil incluido',
+//     tecnologias: ['nodejs', 'bootstrap', 'handlebars','mongoDB', "AWS"],
+//     title: 'Blog',
+//     image: '/img/puppeteer.png'
+//   },
+//   {
+//     id: 3,
+//     description: 'Herramienta de web scraping para extraer datos clave de diferentes fuentes.',
+//     tecnologias: ['nodejs', 'n8n'],
+//     title: 'Scraper de Datos Estratégicos',
+//     image: '/img/webScraping.png'
+//   }
+// ]
+
 export const Projects = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -35,6 +59,9 @@ export const Projects = () => {
 
     fetchProjects();
   }, []);
+
+  console.log(projects);
+  
 
   return (
     <section className="py-20 bg-gray-900 text-white" id="projects">
