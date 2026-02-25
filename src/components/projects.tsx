@@ -1,113 +1,134 @@
 "use client";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "@/lib/firebaseConfig";
-
-import { useEffect, useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
-import { ProjectModal } from "./projectModal";
-
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  link: string;
-  technologies?: string[];
-  images?: string[];
-}
-
-// const projets = [
-//   {
-//     id: 1,
-//     description: 'Sistema automatizado para recopilar información y mejorar la eficiencia en licitaciones.',
-//     tecnologias: ['javaScript', 'n8n'],
-//     title: 'Automatización de Licitaciones',
-//     image: '/img/puppeteer.png'
-//   },
-//   {
-//     id: 2,
-//     description: 'Este fue uno de mis primeros proyectos, creado usando nodejs y handlebars es un blog o red social típica con funciones de perfil incluido',
-//     tecnologias: ['nodejs', 'bootstrap', 'handlebars','mongoDB', "AWS"],
-//     title: 'Blog',
-//     image: '/img/puppeteer.png'
-//   },
-//   {
-//     id: 3,
-//     description: 'Herramienta de web scraping para extraer datos clave de diferentes fuentes.',
-//     tecnologias: ['nodejs', 'n8n'],
-//     title: 'Scraper de Datos Estratégicos',
-//     image: '/img/webScraping.png'
-//   }
-// ]
+import { projects } from "@/data/projects";
+import { motion } from "framer-motion";
 
 export const Projects = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      const querySnapshot = await getDocs(collection(db, "projects"));
-      const projectsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Project[];
-      setProjects(projectsData);
-    };
-
-    fetchProjects();
-  }, []);
-
-  console.log(projects);
-  
+  const featuredProject = projects.find(p => p.featured);
+  const otherProjects = projects.filter(p => !p.featured);
 
   return (
-    <section className="py-20 bg-gray-900 text-white" id="projects">
+    <section className="py-24 bg-gray-900 text-white" id="projects">
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center text-indigo-400 mb-10">Proyectos</h2>
 
-        <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={20}
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 4000, disableOnInteraction: false }}
-          breakpoints={{
-            640: { slidesPerView: 1 },
-            1024: { slidesPerView: 2 },
-            1280: { slidesPerView: 3 },
-          }}
-          className="w-full"
-        >
-          {projects.map((project) => (
-            <SwiperSlide key={project.id}>
-              <div className="bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-2xl transition transform hover:scale-105">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={600}
-                  height={350}
-                  className="rounded-lg object-cover"
-                />
-                <h3 className="text-2xl font-semibold mt-4">{project.title}</h3>
-                <p className="text-gray-300 mt-2">{project.description}</p>
-                <button
-                  onClick={() => setSelectedProject(project)}
-                  className="inline-block mt-4 px-6 py-3 bg-indigo-500 hover:bg-indigo-600 rounded text-white transition"
-                >
-                  Ver Proyecto
-                </button>
+        {/* Título */}
+        <div className="mb-16 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-indigo-400">
+            Proyectos
+          </h2>
+          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+            Casos reales donde combino desarrollo full-stack,
+            automatización e inteligencia artificial aplicada.
+          </p>
+        </div>
+
+        {/* GRID */}
+        <div className="grid md:grid-cols-3 gap-8">
+
+          {/* ⭐ Proyecto Destacado */}
+          {featuredProject && (
+            <motion.div
+              layout
+              className="md:col-span-2 bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition"
+            >
+              <div className="mb-4">
+                <span className="text-xs uppercase tracking-widest bg-indigo-500/20 text-indigo-400 px-3 py-1 rounded-full">
+                  Proyecto Destacado
+                </span>
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
 
-      {/* Mostrar el modal si hay un proyecto seleccionado */}
-      {selectedProject && <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
+              <h3 className="text-3xl font-bold mb-4">
+                {featuredProject.title}
+              </h3>
+
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                {featuredProject.shortDescription}
+              </p>
+
+              {/* Tech badges */}
+              <div className="flex flex-wrap gap-2 mb-6">
+                {featuredProject.tech.map((tech) => (
+                  <span
+                    key={tech}
+                    className="text-sm bg-gray-700 px-3 py-1 rounded-full text-gray-300"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex gap-4 flex-wrap">
+                <Link
+                  href={`/projects/${featuredProject.slug}`}
+                  className="px-6 py-3 bg-indigo-500 hover:bg-indigo-600 rounded-lg transition"
+                >
+                  Ver caso de estudio
+                </Link>
+
+                {featuredProject.repo && (
+                  <a
+                    href={featuredProject.repo}
+                    target="_blank"
+                    className="px-6 py-3 border border-gray-600 hover:border-indigo-400 rounded-lg transition"
+                  >
+                    Ver repositorio
+                  </a>
+                )}
+              </div>
+            </motion.div>
+          )}
+
+          {/* Otros proyectos */}
+          {otherProjects.map((project) => (
+            <motion.div
+              key={project.slug}
+              whileHover={{ y: -6 }}
+              className="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition flex flex-col"
+            >
+              <h3 className="text-xl font-semibold mb-3">
+                {project.title}
+              </h3>
+
+              <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+                {project.shortDescription}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mb-6">
+                {project.tech.slice(0, 4).map((tech) => (
+                  <span
+                    key={tech}
+                    className="text-xs bg-gray-700 px-2 py-1 rounded-full text-gray-300"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-auto flex gap-3 flex-wrap">
+                <Link
+                  href={`/projects/${project.slug}`}
+                  className="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 rounded-lg text-sm transition"
+                >
+                  Ver caso de estudio
+                </Link>
+
+                {project.repo && (
+                  <a
+                    href={project.repo}
+                    target="_blank"
+                    className="px-4 py-2 border border-gray-600 hover:border-indigo-400 rounded-lg text-sm transition"
+                  >
+                    Repo
+                  </a>
+                )}
+              </div>
+            </motion.div>
+          ))}
+
+        </div>
+      </div>
     </section>
   );
 };
