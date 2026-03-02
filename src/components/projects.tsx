@@ -12,7 +12,6 @@ export const Projects = () => {
     <section className="py-24 bg-gray-900 text-white" id="projects">
       <div className="max-w-6xl mx-auto px-6">
 
-        {/* Título */}
         <div className="mb-16 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-indigo-400">
             Proyectos
@@ -23,10 +22,8 @@ export const Projects = () => {
           </p>
         </div>
 
-        {/* GRID */}
         <div className="grid md:grid-cols-3 gap-8">
 
-          {/* ⭐ Proyecto Destacado */}
           {featuredProject && (
             <motion.div
               layout
