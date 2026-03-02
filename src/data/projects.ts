@@ -56,7 +56,7 @@ Configuré un sistema de notificaciones por correo electrónico que envía alert
       "Detección más rápida de oportunidades relevantes"
     ],
 
-    repo: "https://github.com/tu-repo",
+    repo: "https://github.com/DiagoGar/puppeteer",
     demo: null
   },
 
@@ -106,7 +106,7 @@ Sistema de autenticación para gestión segura de contenido.
       "Estructuración modular del código"
     ],
 
-    repo: "https://github.com/tu-repo",
+    repo: "https://github.com/DiagoGar/firstProject",
     demo: null
   },
 
@@ -155,7 +155,7 @@ Implementación de funcionalidades clave siguiendo buenas prácticas de desarrol
       "Desarrollo completo desde análisis hasta implementación"
     ],
 
-    repo: "https://github.com/tu-repo",
+    repo: "https://github.com/DiagoGar/ProyectoAtlas-Laravel",
     demo: null
   }
 ];
