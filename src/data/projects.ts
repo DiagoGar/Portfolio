@@ -5,6 +5,8 @@ export const projects = [
     shortDescription:
       "Plataforma de scraping + clasificación con IA + automatización de notificaciones para detección temprana de oportunidades.",
 
+    image: "/img/n8n/n8n-3.webp",
+
     featured: true,
 
     role: "Diseño e implementación completa del sistema",
@@ -66,18 +68,20 @@ Configuré un sistema de notificaciones por correo electrónico que envía alert
     shortDescription:
       "Aplicación web full-stack con autenticación, CRUD de publicaciones y base de datos persistente.",
 
+    image: "",
+
     featured: false,
 
     role: "Desarrollo full-stack",
     year: "2022",
 
     tech: [
-      "Next.js",
       "Node.js",
+      "bootstrap",
       "MongoDB",
       "Autenticación",
       "CRUD",
-      "Tailwind CSS"
+      "handlebars"
     ],
 
     overview: `
@@ -116,15 +120,23 @@ Sistema de autenticación para gestión segura de contenido.
     shortDescription:
       "Sistema desarrollado como proyecto final técnico, abarcando análisis, diseño e implementación completa.",
 
+    gallery: [
+      "/img/FC/ApiGoogleMaps.png",
+      "/img/FC/HomePage.png",
+      "/img/FC/LogIn.png"
+    ],
+
     featured: false,
 
     role: "Análisis, diseño y desarrollo",
-    year: "2021",
+    year: "2023",
 
     tech: [
-      "C#",
-      "Java",
-      "POO",
+      "Laravel",
+      "Google Maps API",
+      "tailwind CSS",
+      "javascript",
+      "photoshop",
       "Base de Datos Relacional",
       "Arquitectura de Software"
     ],
