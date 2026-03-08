@@ -15,6 +15,8 @@ export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
 
   const project = projects.find((p) => p.slug === slug);
+  const currentIndex = projects.findIndex((p) => p.slug === slug);
+  const nextProject = projects[(currentIndex + 1) % projects.length];
 
   if (!project) {
     notFound();
@@ -28,9 +30,7 @@ export default async function ProjectPage({ params }: Props) {
           {project.year} — {project.role}
         </p>
 
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">
-          {project.title}
-        </h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-6">{project.title}</h1>
 
         <p className="text-lg text-neutral-300 max-w-3xl">
           {project.shortDescription}
@@ -93,12 +93,8 @@ export default async function ProjectPage({ params }: Props) {
           <div className="space-y-6">
             {Object.entries(project.solution).map(([key, value]) => (
               <div key={key}>
-                <h3 className="text-lg font-medium mb-2 capitalize">
-                  {key}
-                </h3>
-                <p className="text-neutral-300 whitespace-pre-line">
-                  {value}
-                </p>
+                <h3 className="text-lg font-medium mb-2 capitalize">{key}</h3>
+                <p className="text-neutral-300 whitespace-pre-line">{value}</p>
               </div>
             ))}
           </div>
@@ -177,6 +173,35 @@ export default async function ProjectPage({ params }: Props) {
           </Link>
         )}
       </section>
+      {nextProject && (
+        <section className="mt-24">
+          <Link
+            href={`/projects/${nextProject.slug}`}
+            className="group block rounded-2xl overflow-hidden border border-neutral-800"
+          >
+            {nextProject.image && (
+              <div className="relative h-64">
+                <Image
+                  src={nextProject.image}
+                  alt={nextProject.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition"
+                />
+              </div>
+            )}
+
+            <div className="p-6 flex items-center justify-between">
+              <div>
+                <p className="text-sm text-neutral-400">Next project</p>
+
+                <h3 className="text-xl font-semibold">{nextProject.title}</h3>
+              </div>
+
+              <span className="text-2xl">→</span>
+            </div>
+          </Link>
+        </section>
+      )}
     </main>
   );
 }
