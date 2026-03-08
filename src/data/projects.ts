@@ -18,7 +18,7 @@ export const projects = [
       "n8n",
       "LLMs",
       "Automatización",
-      "Email Service"
+      "Email Service",
     ],
 
     overview: `
@@ -41,7 +41,7 @@ Integré el procesamiento completo dentro de un flujo automatizado en n8n que or
       `,
       notifications: `
 Configuré un sistema de notificaciones por correo electrónico que envía alertas automáticas cuando se detectan nuevas oportunidades relevantes.
-      `
+      `,
     },
 
     architecture: [
@@ -49,17 +49,17 @@ Configuré un sistema de notificaciones por correo electrónico que envía alert
       "Scraper (Puppeteer)",
       "Clasificación IA",
       "Flujo n8n",
-      "Notificación Email"
+      "Notificación Email",
     ],
 
     impact: [
       "Automatización completa del proceso de monitoreo",
       "Reducción del tiempo de revisión manual",
-      "Detección más rápida de oportunidades relevantes"
+      "Detección más rápida de oportunidades relevantes",
     ],
 
     repo: "https://github.com/DiagoGar/puppeteer",
-    demo: null
+    demo: null,
   },
 
   {
@@ -81,7 +81,7 @@ Configuré un sistema de notificaciones por correo electrónico que envía alert
       "MongoDB",
       "Autenticación",
       "CRUD",
-      "handlebars"
+      "handlebars",
     ],
 
     overview: `
@@ -101,34 +101,34 @@ Desarrollo de interfaz en Next.js con diseño responsivo y componentes reutiliza
       `,
       authentication: `
 Sistema de autenticación para gestión segura de contenido.
-      `
+      `,
     },
 
     impact: [
       "Implementación completa de arquitectura full-stack",
       "Manejo de estado y persistencia de datos",
-      "Estructuración modular del código"
+      "Estructuración modular del código",
     ],
 
     repo: "https://github.com/DiagoGar/firstProject",
-    demo: null
+    demo: null,
   },
 
   {
     slug: "proyecto-final-tecnico",
-    title: "Proyecto Final – Desarrollo de Sistema Integral",
+    title: "Proyecto Final – Sistema de Gestión Logística",
     shortDescription:
-      "Sistema desarrollado como proyecto final técnico, abarcando análisis, diseño e implementación completa.",
+      "Plataforma web desarrollada en Laravel para gestionar productos, lotes, transporte y nodos logísticos dentro de una red de distribución.",
 
     gallery: [
       "/img/FC/ApiGoogleMaps.png",
       "/img/FC/HomePage.png",
-      "/img/FC/LogIn.png"
+      "/img/FC/LogIn.png",
     ],
 
     featured: false,
 
-    role: "Análisis, diseño y desarrollo",
+    role: "Análisis de requerimientos, diseño de arquitectura y desarrollo full-stack",
     year: "2023",
 
     tech: [
@@ -137,37 +137,43 @@ Sistema de autenticación para gestión segura de contenido.
       "tailwind CSS",
       "javascript",
       "photoshop",
-      "Base de Datos Relacional",
-      "Arquitectura de Software"
+      "MySQL",
+      "Arquitectura MVC",
+      "Programación Orientada a Objetos",
     ],
 
     overview: `
-Proyecto integral desarrollado como trabajo final técnico, enfocado en aplicar principios de programación orientada a objetos y diseño estructurado.
+Plataforma web desarrollada como proyecto final técnico cuyo objetivo es gestionar el flujo de productos dentro de una red logística. El sistema permite administrar inventario, agrupar productos en lotes, organizar rutas de transporte y visualizar la estructura logística mediante mapas interactivos.
+
+La aplicación centraliza la información relacionada con productos, almacenes, nodos de distribución, vehículos y camioneros, permitiendo registrar movimientos y mantener un seguimiento estructurado de la logística del sistema.
     `,
 
     problem: `
-Desarrollo de un sistema que integrara lógica de negocio, persistencia de datos y una interfaz funcional bajo un enfoque estructurado.
+La gestión logística involucra múltiples entidades como productos, almacenes, rutas, transporte y personal. Sin un sistema centralizado, el seguimiento de mercancías y la organización de los envíos se vuelve complejo y propenso a errores.
+
+El desafío del proyecto consistía en diseñar una aplicación capaz de integrar estos componentes dentro de una arquitectura clara, permitiendo administrar inventario, transporte y distribución de forma organizada.
     `,
 
     solution: {
       architecture: `
-Diseño de arquitectura modular aplicando principios de programación orientada a objetos y separación de responsabilidades.
+El sistema fue diseñado utilizando la arquitectura MVC de Laravel, separando claramente controladores, modelos y vistas. La lógica de negocio se organiza mediante controladores especializados y modelos Eloquent que representan las entidades logísticas del sistema, como productos, lotes, nodos y movimientos.
       `,
       database: `
-Gestión de base de datos relacional para almacenamiento estructurado de información.
+Se implementó una base de datos relacional para estructurar la información del sistema. El modelo de datos contempla relaciones entre productos, lotes, almacenes, vehículos, camioneros y nodos logísticos, permitiendo registrar y rastrear los movimientos de mercancía dentro de la red.
       `,
       implementation: `
-Implementación de funcionalidades clave siguiendo buenas prácticas de desarrollo.
-      `
+La aplicación incluye funcionalidades para gestión de productos, creación de lotes, asignación de transporte y visualización de nodos logísticos mediante integración con Google Maps. También incorpora un panel administrativo para gestionar usuarios, personal logístico y operaciones del sistema.
+      `,
     },
 
     impact: [
-      "Aplicación práctica de arquitectura de software",
-      "Consolidación de bases sólidas en programación estructurada",
-      "Desarrollo completo desde análisis hasta implementación"
+      "Aplicación práctica de arquitectura MVC y programación orientada a objetos",
+      "Diseño e implementación de un sistema completo de gestión logística",
+      "Integración de visualización geográfica mediante Google Maps API",
+      "Experiencia en modelado de bases de datos relacionales complejas",
     ],
 
     repo: "https://github.com/DiagoGar/ProyectoAtlas-Laravel",
-    demo: null
-  }
+    demo: null,
+  },
 ];
